@@ -15,6 +15,7 @@ if (args.Length == 0)
         Console.WriteLine("Ok thank you for using the software Save Photos Startup on Windows 10 / 11");
         Console.WriteLine("Created by Techcomputerworld");
         Console.WriteLine("https://techcomputerworld.com");
+        Console.Read();
     }
     else
     {
