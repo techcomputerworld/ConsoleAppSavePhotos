@@ -9,33 +9,29 @@ namespace ConsoleAppSavePhotos
     //Clase que usare tanto para Windows 10/11, como para Mac OS X y Ubuntu
     public class SavePhotos
     {
-        public string DirectoryWindows { get; set; }
-        public string DirecotoryLinux { get; set; }
-        public string DirectoryMac { get; set; }
+        public string PathStartupPhotos { get; set; }
+        public string PathUser { get; set; }
+        public string FileStartupPhoto { get; set; }
+        public string FileUserPhoto { get; set; }
+
         public void SavePhotoWindows()
         {
-            string UserName = Environment.UserName;
-            string path1 = Path.GetFullPath("C:\\Users\\" + UserName);
-            string path2 = "\\AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\" +
-                "LocalState\\Assets";
-            string path3 = Path.GetFullPath(path1 + path2);
-            string path4 = "C:\\Users\\" + UserName;
-            string path5 = "\\Documents";
-            string pathDocuments = Path.GetFullPath(path4);
+            string userName = Environment.UserName;
+            PathStartupPhotos = Path.GetFullPath("C:\\Users\\" + userName + "\\AppData\\Local\\Packages"
+                + "\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\" +
+                 "LocalState\\Assets");
+            PathUser = Path.GetFullPath("C:\\Users\\" + userName);
 
-                
             try
             {
-                string[] fileList = Directory.GetFiles(path3);
+                string[] fileList = Directory.GetFiles(PathStartupPhotos);
                 foreach (string file in fileList)
                 {
-                    string file1 = file.ToString();
-                    string file2 = file1 + ".jpg";
-                    string file3 = Path.GetFileName(file1);
-                    string file4 = Path.GetFileName(file2);
+                    FileStartupPhoto = Path.GetFileName(file.ToString());
+                    FileUserPhoto = Path.GetFileName(FileStartupPhoto + ".jpg");
                     
                     //quiero cambiar el nombre del fichero pero no sé como hacerlo porque puedo darle a elegir al usuario
-                    File.Copy(Path.Combine(path3, file3), Path.Combine(pathDocuments, file4), true);
+                    File.Copy(Path.Combine(PathStartupPhotos, FileStartupPhoto), Path.Combine(PathUser, FileUserPhoto), true);
                 }
                 Console.WriteLine("images copied successfully");
                 
