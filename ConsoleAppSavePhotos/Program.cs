@@ -12,6 +12,12 @@ if (args.Length == 0)
     if (Console.ReadKey().Key == ConsoleKey.Enter)
     {
         savePhotos.SavePhotoWindows();
+        Console.WriteLine("Current OS Information: \n");
+        Console.WriteLine("Platform: {0:G}", os.Platform);
+        Console.WriteLine("Platform: {0:G}", os.VersionString);
+        Console.WriteLine("Ok thank you for using the software");
+        Console.WriteLine("Created by Techcomputerworld");
+        Console.WriteLine("https://techcomputerworld.com");
     }
     else
     {
@@ -27,6 +33,9 @@ if (args.Length == 0)
             Console.WriteLine("Current OS Information: \n");
             Console.WriteLine("Platform: {0:G}", os.Platform);
             Console.WriteLine("Platform: {0:G}", os.VersionString);
+            Console.WriteLine("Ok thank you for using the software");
+            Console.WriteLine("Created by Techcomputerworld");
+            Console.WriteLine("https://techcomputerworld.com");
             savePhotos.SavePhotoWindows(carpeta);
         }
         else if (read == "no")
