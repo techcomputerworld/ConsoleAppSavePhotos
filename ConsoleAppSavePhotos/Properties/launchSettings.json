@@ -2,7 +2,7 @@
   "profiles": {
     "ConsoleAppSavePhotos": {
       "commandName": "Project",
-      "commandLineArgs": "fotos"
+      "commandLineArgs": "fotos-2"
     }
   }
 }
