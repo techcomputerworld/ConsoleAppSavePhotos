@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppSavePhotos
 {
+    //The idea was to create this program for Windows, GNU/Linux and Mac OS X, although I don't know if it could really be done.
+    //La idea era crear este programa tanto para Windows, GNU/Linux y Mac OS X aunque no sé si se podra realmente.
+
+
     //Clase que usare tanto para Windows 10/11, como para Mac OS X y Ubuntu
     public class SavePhotos
     {
@@ -15,8 +19,10 @@ namespace ConsoleAppSavePhotos
         public string PathUser { get; set; }
         public string FileStartupPhoto { get; set; }
         public string FileUserPhoto { get; set; }
+        //string folder will be to say to which folder we are going to copy all the photos
         //string carpeta va a ser para decir a que carpeta vamos a copiar todas las fotos
-        //este metodo para uan aplicación de consola
+        //this method for a console aplication
+        //este metodo para una aplicación de consola
         public void SavePhotoWindows()
         {
             string userName = Environment.UserName;
@@ -26,26 +32,27 @@ namespace ConsoleAppSavePhotos
             PathUser = Path.GetFullPath("C:\\Users\\" + userName);
             TryCopy();
         }
-        public void SavePhotoWindows(string carpeta)
+        public void SavePhotoWindows(string folder)
         {
             string userName = Environment.UserName;
             PathStartupPhotos = Path.GetFullPath("C:\\Users\\" + userName + "\\AppData\\Local\\Packages"
                 + "\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\" +
                  "LocalState\\Assets");
             PathUser = Path.GetFullPath("C:\\Users\\" + userName);
-            if (carpeta == "documents")
+            if (folder == "documents")
             {
                 PathUser = Path.GetFullPath("C:\\Users\\" + userName + "\\Documents");
             }
-            else if (carpeta == "Downloads")
+            else if (folder == "Downloads")
             {
                 PathUser = Path.GetFullPath("C:\\Users\\" + userName + "\\Downloads");
             }
             else
             {
-                PathUser = Path.GetFullPath("C:\\Users\\" + userName + "\\" + carpeta);
+                PathUser = Path.GetFullPath("C:\\Users\\" + userName + "\\" + folder);
 
             }
+            //check that the directory exists
             //comprobar que existe el directorio
             try
             {
@@ -72,8 +79,6 @@ namespace ConsoleAppSavePhotos
                 {
                     FileStartupPhoto = Path.GetFileName(file.ToString());
                     FileUserPhoto = Path.GetFileName(FileStartupPhoto + ".jpg");
-                    //
-                    //quiero cambiar el nombre del fichero pero no sé como hacerlo porque puedo darle a elegir al usuario
                     File.Copy(Path.Combine(PathStartupPhotos, FileStartupPhoto), Path.Combine(PathUser, FileUserPhoto), true);
                 }
                 Console.WriteLine("images copied successfully");
@@ -81,7 +86,6 @@ namespace ConsoleAppSavePhotos
             }
             catch (Exception e)
             {
-                //Console.WriteLine(ex.Message);
                 string exception = e.ToString();
             }
         }
