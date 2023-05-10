@@ -4,12 +4,11 @@ using System.Diagnostics.Tracing;
 
 class program
 {
-    //static SavePhotos savePhotos { get; set; }
     static OperatingSystem os { get; set; }
     static string folder { get; set; }
     static void Main(string[] args)
     {
-        string folder = "";
+        folder = "";
         os = Environment.OSVersion;
         Hello hello = new Hello();
         

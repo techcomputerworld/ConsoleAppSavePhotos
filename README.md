@@ -6,7 +6,13 @@ the program is written in C# if someone wants to make a program like this in ano
 
 The program version on English.
 
-### ConsoleAppSavePhotos version 0.1.1.1.
+### ConsoleAppSavePhotos version 1.0.0
+
+This version copy all startup photos on the C:\users\nameuser nameuser is the name of your user.
+
+You can copy all startup photos on C:\users\nameuser\fotos fotos is the name of the folder that you want
 
 ConsoleAppSavePhotos write on C# by https://techcomputerworld.com
+
+I leave the source code available in GPLv3 so that whoever is encouraged can improve the program. You can study and do what you want with the source code if you keep the license.
 
